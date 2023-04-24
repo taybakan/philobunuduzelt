@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 18:45:47 by taybakan          #+#    #+#             */
-/*   Updated: 2023/04/19 14:40:36 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/04/24 11:42:53 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	is_ate(t_args *args)
 
 int	*args_to_die(t_args *args, int i)
 {
-	int	*check;
-	t_time t;
-	
+	int		*check;
+	t_time	t;
+
 	check = malloc(sizeof(int) * 2);
+	usleep(100);
 	pthread_mutex_lock(args->philo[0]->plate);
 	t = ft_get_time();
-	usleep(100);
 	if ((int)(t - (args->philo[i]->last_eat)) > args->philo[i]->t_die)
 		check[0] = 1;
 	else
@@ -64,7 +64,6 @@ int	azrael(t_args *args)
 				return (0);
 			}
 			free(check);
-			usleep(50);
 		}
 	}
 	return (0);
