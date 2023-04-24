@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 01:32:14 by taybakan          #+#    #+#             */
-/*   Updated: 2023/04/19 08:00:36 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/04/24 11:50:09 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ int	ft_mutex_creat(t_args *args)
 	return (ft_mutex_init(args));
 }
 
-int	ft_creat(int argc, char **argv, t_args *args)
+int	ft_creat(int argc, char **argv, t_args *args, t_data *data)
 {
-	t_data	*data;
 	int		i;
 
-	data = malloc(sizeof(t_data));
 	args->n_philo = ft_atol(argv[1]);
+	if (args->n_philo == 0)
+		return (1);
 	data->is_dead = 0;
 	data->is_ate = 0;
 	args->philo = malloc(sizeof(t_philo *) * args->n_philo);

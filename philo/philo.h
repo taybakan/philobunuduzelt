@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 04:10:04 by taybakan          #+#    #+#             */
-/*   Updated: 2023/04/24 11:33:13 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/04/24 11:50:59 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_philo
 	int						rip;
 	t_time					last_eat;
 	t_time					t_init;
-	t_time					current;
 	pthread_t				thread;
 	pthread_mutex_t			*death;
 	pthread_mutex_t			*plate;
@@ -63,7 +62,8 @@ int							thread_init(t_args *args);
 int							ft_mutex_init(t_args *args);
 int							ph_wait(int p_time, int w_time);
 void						*routine(t_philo *philo);
-int							ft_creat(int argc, char **argv, t_args *args);
+int							ft_creat(int argc, char **argv, t_args *args,
+								t_data *data);
 int							getforks(t_philo *philo);
 int							dinner(t_philo *philo);
 int							ph_sleep(t_philo *philo);
